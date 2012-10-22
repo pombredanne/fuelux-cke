@@ -7,4 +7,5 @@
 
 define(function (require) {
     /*** Libraries ***/
+    require('ckeditor');
 });
