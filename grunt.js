@@ -60,13 +60,14 @@ module.exports = function(grunt) {
 					optimize: 'none',
 					optimizeCss: 'none',
 					paths: {
+                        'ckeditor': '../lib/ckeditor-dev/ckeditor',
                         'fuelux-ckeditor': '../dist',
                         'jquery': '../lib/jquery'
 					},
 					modules: [
 						{
 							name: 'fuelux-ckeditor/all',
-							exclude: ['jquery'],
+							exclude: ['ckeditor', 'jquery'],
                             include: []
 						}
 					]
