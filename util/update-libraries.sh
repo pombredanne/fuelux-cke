@@ -8,3 +8,6 @@ cd ../
 volo add jrburke/requirejs -f
 volo add jquery/jquery -f
 volo add ckeditor/ckeditor-dev -f
+
+# build ckeditor using their custom sh file
+lib/ckeditor-dev/dev/builder/build.sh
