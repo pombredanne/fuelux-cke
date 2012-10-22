@@ -162,7 +162,7 @@ module.exports = function(grunt) {
         });
     });
 
-    grunt.registerTask('updateLibraries', 'Updates the lib folder in the FuelUX Message Editor', function () {
+    grunt.registerTask('updateLibraries', 'Updates the lib folder in the Fuel UX CKeditor', function () {
         var done = this.async();
         grunt.helper('exec_shell_script', 'util/update-libraries.sh', done);
     });
