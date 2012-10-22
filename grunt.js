@@ -60,7 +60,7 @@ module.exports = function(grunt) {
 					optimize: 'none',
 					optimizeCss: 'none',
 					paths: {
-                        'ckeditor': '../lib/ckeditor-dev/ckeditor',
+                        'ckeditor': '../lib/ckeditor-dev/dev/builder/release/ckeditor/ckeditor',
                         'fuelux-ckeditor': '../dist',
                         'jquery': '../lib/jquery'
 					},

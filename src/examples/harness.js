@@ -8,7 +8,9 @@
 require.config({ baseUrl: '../' });
 
 require(['jquery', 'fuelux-ckeditor/all'], function($){
-    //CKEDITOR.disableAutoInline = true;
+    var CKEDITOR = window.CKEDITOR;
 
-    //var editor = CKEDITOR.inline( 'example' );
+    CKEDITOR.disableAutoInline = true;
+
+    var editor = CKEDITOR.inline( 'example' );
 });
