@@ -4,9 +4,9 @@
 
 require.config({ baseUrl: '../src' });
 
-require(['jquery', 'fuelux-editor/all'], function($) {
+require(['jquery', 'fuelux-ckeditor/all'], function($) {
 
-    module('Fuel UX Editor', {
+    module('Fuel UX CKeditor', {
         setup: function() {
             this.elems = $('#qunit-fixture').children();
         }

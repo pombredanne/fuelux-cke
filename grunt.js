@@ -60,25 +60,14 @@ module.exports = function(grunt) {
 					optimize: 'none',
 					optimizeCss: 'none',
 					paths: {
-                        'backbone': '../lib/backbone',
-                        'backbone-fe': '../util/backbone-fe',
-                        'fuelux': '../lib/fuelux/',
-                        'fuelux-editor': '../dist',
-                        'globalize': '../lib/globalize',
-                        'handlebars': '../lib/handlebars',
-                        'jquery': '../lib/jquery',
-                        'jquery-fe': '../util/jquery-fe',
-                        'jquery-ui': '../lib/jquery-ui/jqueryui/',
-                        'text': '../lib/text',
-                        'tmpl': '../lib/tmpl',
-                        'underscore': '../lib/underscore',
-                        'underscore-fe': '../util/underscore-fe'
+                        'fuelux-ckeditor': '../dist',
+                        'jquery': '../lib/jquery'
 					},
 					modules: [
 						{
-							name: 'fuelux-editor/all',
-							exclude: ['fuelux/all', 'jquery'],
-                            include: ['text', 'tmpl']
+							name: 'fuelux-ckeditor/all',
+							exclude: ['jquery'],
+                            include: []
 						}
 					]
 				}
@@ -86,30 +75,30 @@ module.exports = function(grunt) {
 		},
 		recess: {
 			compile: {
-				src: ['src/less/fuelux-editor.less'],
-				dest: 'dist/css/fuelux-editor.css',
+				src: ['src/less/fuelux-ckeditor.less'],
+				dest: 'dist/css/fuelux-ckeditor.css',
 				options: {
 					compile: true
 				}
 			},
 			/*compile_responsive: {
-				src: ['src/less/fuelux-editor-responsive.less'],
-				dest: 'dist/css/fuelux-editor-responsive.css',
+				src: ['src/less/fuelux-ckeditor-responsive.less'],
+				dest: 'dist/css/fuelux-ckeditor-responsive.css',
 				options: {
 					compile: true
 				}
 			},*/
 			compress: {
-				src: ['src/less/fuelux-editor.less'],
-				dest: 'dist/css/fuelux-editor.min.css',
+				src: ['src/less/fuelux-ckeditor.less'],
+				dest: 'dist/css/fuelux-ckeditor.min.css',
 				options: {
 					compile: true,
 					compress: true
 				}
 			}/*,
 			compress_responsive: {
-				src: ['src/less/fuelux-editor-responsive.less'],
-				dest: 'dist/css/fuelux-editor-responsive.min.css',
+				src: ['src/less/fuelux-ckeditor-responsive.less'],
+				dest: 'dist/css/fuelux-ckeditor-responsive.min.css',
 				options: {
 					compile: true,
 					compress: true
@@ -117,8 +106,8 @@ module.exports = function(grunt) {
 			}*/
 		},
 		clean: {
-			dist: ['dist/build.txt', 'dist/fuelux-editor.zip'],
-			zipsrc: ['dist/fuelux-editor']
+			dist: ['dist/build.txt', 'dist/fuelux-ckeditor.zip'],
+			zipsrc: ['dist/fuelux-ckeditor']
 		},
 		copy: {
 			images: {
@@ -135,14 +124,14 @@ module.exports = function(grunt) {
 					basePath: 'dist'
 				},
 				files: {
-					'dist/fuelux-editor': 'dist/**'
+					'dist/fuelux-ckeditor': 'dist/**'
 				}
 			}
 		},
 		compress: {
 			zip: {
 				files: {
-					'dist/fuelux-editor.zip': 'dist/fuelux-editor/**'
+					'dist/fuelux-ckeditor.zip': 'dist/fuelux-ckeditor/**'
 				},
 				options: {
 					mode: 'zip',
