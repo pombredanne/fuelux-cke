@@ -60,6 +60,7 @@ module.exports = function(grunt) {
 					optimize: 'none',
 					optimizeCss: 'none',
 					paths: {
+                        'almond': '../lib/almond',
                         'ckeditor': 'http://dl.dropbox.com/u/12146987/ckeditor4/ckeditor',
                         'fuelux-ckeditor': '../dist',
                         'jquery': '../lib/jquery'
@@ -69,7 +70,12 @@ module.exports = function(grunt) {
 							name: 'fuelux-ckeditor/all',
 							exclude: ['ckeditor', 'jquery'],
                             include: []
-						}
+						},
+                        {
+                            name: 'fuelux-ckeditor/loader',
+                            exclude: ['ckeditor', 'jquery'],
+                            include: ['almond']
+                        }
 					]
 				}
 			}
