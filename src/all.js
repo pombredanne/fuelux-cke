@@ -7,6 +7,5 @@
 
 define(function (require) {
     /*** Libraries ***/
-    /* TODO: ask adam if this is a bad idea */
-    require('http://dl.dropbox.com/u/12146987/ckeditor4/ckeditor');
+    require('ckeditor');
 });
