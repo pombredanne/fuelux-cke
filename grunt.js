@@ -60,6 +60,7 @@ module.exports = function(grunt) {
 					optimize: 'none',
 					optimizeCss: 'none',
 					paths: {
+                        'fuelux-ckeditor': '../dist'
 					},
 					modules: [
 					]
@@ -68,7 +69,6 @@ module.exports = function(grunt) {
 		},
 		clean: {
 			dist: ['dist/build.txt', 'dist/fuelux-ckeditor.zip'],
-			docs: ['dist/docs/'],
 			zipsrc: ['dist/fuelux-ckeditor']
 		},
 		copy: {
@@ -112,7 +112,7 @@ module.exports = function(grunt) {
 	});
 
 	// Default task.
-	grunt.registerTask('default', 'lint qunit requirejs copy:images clean:dist clean:docs min copy:zipsrc compress clean:zipsrc docs');
+	grunt.registerTask('default', 'lint qunit requirejs copy:ckeditor copy:images clean:dist min copy:zipsrc compress clean:zipsrc');
 	grunt.registerTask('devserver', 'lint qunit server watch'); // development server
 
 	// Helper for running shell scripts

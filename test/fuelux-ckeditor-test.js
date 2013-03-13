@@ -2,9 +2,14 @@
   start:false, stop:false, ok:false, equal:false, notEqual:false, deepEqual:false,
   notDeepEqual:false, strictEqual:false, notStrictEqual:false, raises:false */
 
-require.config({ baseUrl: '../src' });
+require.config({
+    baseUrl: '../src',
+    paths: {
+        'jquery': '../lib/jquery'
+    }
+});
 
-require(['jquery'/*, 'fuelux-editor/all'*/], function($) {
+require(['jquery'], function($) {
     module('Fuel UX CKeditor', {
         setup: function() {
             this.elems = $('#qunit-fixture').children();

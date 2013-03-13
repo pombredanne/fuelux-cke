@@ -38,7 +38,9 @@
   "volo": {
     "baseDir": "lib",
     "dependencies": {
-      "ckeditor-dev": "github:ckeditor/ckeditor-dev/4.0.2"
+      "ckeditor-dev": "github:ckeditor/ckeditor-dev/4.0.2",
+      "jquery": "github:jquery/jquery/1.9.1",
+      "require": "github:jrburke/requirejs/2.1.5"
     }
   }
 }
