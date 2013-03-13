@@ -2,7 +2,6 @@
 module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib');
-	grunt.loadNpmTasks('grunt-recess');
 
 	// Project configuration.
 	grunt.initConfig({
@@ -28,7 +27,7 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			files: ['grunt.js', 'lib/**', 'src/**', 'test/**'],
-			tasks: 'lint qunit recess'
+			tasks: 'lint qunit'
 		},
 		jshint: {
 			options: {
@@ -67,58 +66,26 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		recess: {
-			compile: {
-				src: ['src/less/fuelux-ckeditor.less'],
-				dest: 'dist/css/fuelux-ckeditor.css',
-				options: {
-					compile: true
-				}
-			},
-			/*compile_responsive: {
-				src: ['src/less/fuelux-ckeditor-responsive.less'],
-				dest: 'dist/css/fuelux-ckeditor-responsive.css',
-				options: {
-					compile: true
-				}
-			},*/
-			compress: {
-				src: ['src/less/fuelux-ckeditor.less'],
-				dest: 'dist/css/fuelux-ckeditor.min.css',
-				options: {
-					compile: true,
-					compress: true
-				}
-			}/*,
-			compress_responsive: {
-				src: ['src/less/fuelux-ckeditor-responsive.less'],
-				dest: 'dist/css/fuelux-ckeditor-responsive.min.css',
-				options: {
-					compile: true,
-					compress: true
-				}
-			}*/
-		},
 		clean: {
 			dist: ['dist/build.txt', 'dist/fuelux-ckeditor.zip'],
 			docs: ['dist/docs/'],
 			zipsrc: ['dist/fuelux-ckeditor']
 		},
 		copy: {
+            ckeditor: {
+                options: {
+                    basePath: 'lib/ckeditor-dev/dev/builder/release/ckeditor'
+                },
+                files: {
+                    'dist/ckeditor': 'lib/ckeditor-dev/dev/builder/release/ckeditor/**'
+                }
+            },
 			images: {
 				options: {
 					basePath: 'src/img'
 				},
 				files: {
 					'dist/img': 'src/img/**'
-				}
-			},
-			docs: {
-				options: {
-					basePath: 'docs/themes'
-				},
-				files: {
-					'dist/docs/themes': 'docs/themes/**'
 				}
 			},
 			//TODO: ask adam what this does
@@ -145,22 +112,18 @@ module.exports = function(grunt) {
 	});
 
 	// Default task.
-	grunt.registerTask('default', 'lint qunit requirejs recess copy:images clean:dist clean:docs min copy:zipsrc compress clean:zipsrc docs');
-	grunt.registerTask('s', 'lint qunit recess server watch'); // development server
-	grunt.registerTask('docs', 'clean:docs yuidoc copy:docs');
+	grunt.registerTask('default', 'lint qunit requirejs copy:images clean:dist clean:docs min copy:zipsrc compress clean:zipsrc docs');
+	grunt.registerTask('devserver', 'lint qunit server watch'); // development server
 
 	// Helper for running shell scripts
 	grunt.registerHelper('exec_shell_script', function (path, done) {
 		var cmd = require('child_process').spawn('bash', [path]);
-
 		cmd.stderr.on('data', function(data) {
 			grunt.log.write(data.toString());
 		});
-
 		cmd.stdout.on('data', function(data) {
 			grunt.log.write(data.toString());
 		});
-
 		cmd.on('exit', function(code) {
 			done(code);
 		});
