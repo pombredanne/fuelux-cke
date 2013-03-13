@@ -1,0 +1,27 @@
+Non-Volo Libraries
+--------------------------
+1. aurl.js
+2. codemirror.js
+3. handlebars.js
+4. tmpl.js
+
+
+
+Library Modifications
+--------------------------
+
+(avoid like the plague unless necessary, document any changes thoroughly)
+
+1. AMD-ified jquery-ui and underscore (https://github.com/volojs/volo/blob/master/commands/amdify/doc.md)
+2. Used AMD backbone source (https://github.com/amdjs/backbone)
+3. Modified jquery-ui dialog.js - added focusOnOpen option to remove auto-focusing on dialog (lines 51 & 344 in v1.8.23)
+4. CKeditor modified and is currently on my Dropbox as ckeditor4mod
+    - Has additional onchange and timestamp plugins
+    - Has custom theme as well
+5. Codemirror css converted to less file and added to less directory
+    - A few msie lines were commented out due to less build errors
+
+
+
+Additional Notes
+--------------------------
