@@ -10,7 +10,7 @@ define(function (require) {
     CKEDITOR.plugins.add( 'timestamp',
     {
         beforeInit: function(editor){
-            this.path = CKEDITOR.fuelux_extensions.directory + 'plugins/timestamp/';
+            this.path = CKEDITOR.fuelux.directory + 'plugins/timestamp/';
         },
         // The plugin initialization logic goes inside this method.
         // http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.pluginDefinition.html#init

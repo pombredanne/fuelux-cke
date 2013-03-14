@@ -27,7 +27,7 @@ define(function (require) {
     CKEDITOR.plugins.add( 'onchange',
     {
         beforeInit: function(editor){
-            this.path = CKEDITOR.fuelux_extensions.directory + 'plugins/onchange/';
+            this.path = CKEDITOR.fuelux.directory + 'plugins/onchange/';
         },
         init : function( editor )
         {
