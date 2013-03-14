@@ -13,6 +13,8 @@ module.exports = function(grunt) {
 			'* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
 			' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
 		},
+        //TODO: upgrade to grunt .4 and make dynamic mappings to minify copied plugins / skins
+        //https://github.com/gruntjs/grunt/wiki/Configuring-tasks
 		min: {
 			dist: {
 				src: ['<banner:meta.banner>', 'dist/all.js'],
