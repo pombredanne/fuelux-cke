@@ -58,6 +58,7 @@ module.exports = function(grunt) {
 					appDir: 'src',
 					baseUrl: '.',
 					dir: 'dist',
+                    keepBuildDir: true,
 					optimize: 'none',
 					optimizeCss: 'none',
 					paths: {
@@ -66,16 +67,17 @@ module.exports = function(grunt) {
                         'jquery': '../lib/jquery'
 					},
 					modules: [
-                        /*{
-                            name: 'fuelux-editor/all',
-                            exclude: ['jquery'],
-                            include: ['aurl']
-                        }*/
+                        {
+                            exclude: ['jquery', 'fuelux-ckeditor/ckeditor/ckeditor'],
+                            include: ['aurl'],
+                            name: 'fuelux-ckeditor/all'
+                        }
 					]
 				}
 			}
 		},
 		clean: {
+            all: ['dist/**'],
 			dist: ['dist/build.txt', 'dist/fuelux-ckeditor.zip'],
 			zipsrc: ['dist/fuelux-ckeditor']
 		},
@@ -129,7 +131,7 @@ module.exports = function(grunt) {
 
 	// Default task.
     //TODO: make this lint
-	grunt.registerTask('default', 'qunit copy:ckeditor requirejs copy:plugins copy:skins clean:dist min copy:zipsrc compress clean:zipsrc');
+	grunt.registerTask('default', 'qunit clean:all copy:ckeditor copy:plugins copy:skins requirejs clean:dist min copy:zipsrc compress clean:zipsrc');
 	grunt.registerTask('devserver', 'lint qunit server watch'); // development server
 
 	// Helper for running shell scripts
