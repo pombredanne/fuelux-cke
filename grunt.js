@@ -128,7 +128,8 @@ module.exports = function(grunt) {
 	});
 
 	// Default task.
-	grunt.registerTask('default', 'lint qunit copy:ckeditor requirejs copy:plugins copy:skins clean:dist min copy:zipsrc compress clean:zipsrc');
+    //TODO: make this lint
+	grunt.registerTask('default', 'qunit copy:ckeditor requirejs copy:plugins copy:skins clean:dist min copy:zipsrc compress clean:zipsrc');
 	grunt.registerTask('devserver', 'lint qunit server watch'); // development server
 
 	// Helper for running shell scripts

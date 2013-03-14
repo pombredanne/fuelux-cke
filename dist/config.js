@@ -9,6 +9,7 @@ define(['require','fuelux-ckeditor/ckeditor/ckeditor','aurl!fuelux-ckeditor/dir.
 
     config.extraPlugins = 'onchange';
 
+
     //SKINS
     config.skin = 'fuelux-editor,' + directory + 'skins/fuelux-ckeditor/';
 

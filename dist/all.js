@@ -5,12 +5,8 @@
  * Copyright (c) 2013 ExactTarget
  */
 
-define(['require','fuelux-ckeditor/ckeditor/ckeditor'],function (require) {
+define(['require','fuelux-ckeditor/config'],function (require) {
 
-    /*** Libraries ***/
-
-    require('fuelux-ckeditor/ckeditor/ckeditor');
-
-    /*** Extensions ***/
+    require('fuelux-ckeditor/config');
 
 });
