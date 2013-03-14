@@ -1,4 +1,4 @@
-define(function (require) {
+define(['require','fuelux-ckeditor/ckeditor/ckeditor','aurl!fuelux-ckeditor/dir.gif'],function (require) {
     require('fuelux-ckeditor/ckeditor/ckeditor');
 
     var config = CKEDITOR.config;
@@ -8,7 +8,6 @@ define(function (require) {
     CKEDITOR.plugins.addExternal('onchange', directory + 'plugins/onchange/', 'plugin.js');
 
     config.extraPlugins = 'onchange';
-
 
     //SKINS
     config.skin = 'fuelux-editor,' + directory + 'skins/fuelux-ckeditor/';

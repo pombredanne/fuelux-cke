@@ -9,13 +9,4 @@ define(function (require) {
 
     require('fuelux-ckeditor/config');
 
-    /*** Plugins ***/
-
-    require('fuelux-ckeditor/plugins/onchange/plugin');
-    require('fuelux-ckeditor/plugins/timestamp/plugin');
-
-    /*** Skins ***/
-
-
-
 });

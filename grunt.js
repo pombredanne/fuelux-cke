@@ -66,11 +66,11 @@ module.exports = function(grunt) {
                         'jquery': '../lib/jquery'
 					},
 					modules: [
-                        {
+                        /*{
                             name: 'fuelux-editor/all',
                             exclude: ['jquery'],
                             include: ['aurl']
-                        }
+                        }*/
 					]
 				}
 			}
@@ -88,14 +88,22 @@ module.exports = function(grunt) {
                     'dist/ckeditor': 'lib/ckeditor-dev/dev/builder/release/ckeditor/**'
                 }
             },
-			images: {
-				options: {
-					basePath: 'src/img'
-				},
-				files: {
-					'dist/img': 'src/img/**'
-				}
-			},
+            plugins: {
+                options: {
+                    basePath: 'src/plugins'
+                },
+                files: {
+                    'dist/plugins': 'src/plugins/**'
+                }
+            },
+            skins: {
+                options: {
+                    basePath: 'src/skins'
+                },
+                files: {
+                    'dist/skins': 'src/skins/**'
+                }
+            },
 			//TODO: ask adam what this does
 			zipsrc: {
 				options: {
@@ -120,7 +128,7 @@ module.exports = function(grunt) {
 	});
 
 	// Default task.
-	grunt.registerTask('default', 'lint qunit requirejs copy:ckeditor copy:images clean:dist min copy:zipsrc compress clean:zipsrc');
+	grunt.registerTask('default', 'lint qunit copy:ckeditor requirejs copy:plugins copy:skins clean:dist min copy:zipsrc compress clean:zipsrc');
 	grunt.registerTask('devserver', 'lint qunit server watch'); // development server
 
 	// Helper for running shell scripts
