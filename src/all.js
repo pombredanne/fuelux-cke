@@ -7,10 +7,15 @@
 
 define(function (require) {
 
-    /*** Libraries ***/
+    require('fuelux-ckeditor/config');
 
-    require('fuelux-ckeditor/ckeditor/ckeditor');
+    /*** Plugins ***/
 
-    /*** Extensions ***/
+    require('fuelux-ckeditor/plugins/onchange/plugin');
+    require('fuelux-ckeditor/plugins/timestamp/plugin');
+
+    /*** Skins ***/
+
+
 
 });

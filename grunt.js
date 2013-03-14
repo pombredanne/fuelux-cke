@@ -30,6 +30,7 @@ module.exports = function(grunt) {
 			tasks: 'lint qunit'
 		},
 		jshint: {
+
 			options: {
 				boss: true,
 				browser: true,
@@ -60,9 +61,16 @@ module.exports = function(grunt) {
 					optimize: 'none',
 					optimizeCss: 'none',
 					paths: {
-                        'fuelux-ckeditor': '../dist'
+                        'aurl': '../lib/aurl',
+                        'fuelux-ckeditor': '../dist',
+                        'jquery': '../lib/jquery'
 					},
 					modules: [
+                        {
+                            name: 'fuelux-editor/all',
+                            exclude: ['jquery'],
+                            include: ['aurl']
+                        }
 					]
 				}
 			}

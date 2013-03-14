@@ -1,6 +1,7 @@
 Non-Volo Libraries
 --------------------------
-1. qunit
+1. aurl
+2. qunit
 
 Library Modifications
 --------------------------
