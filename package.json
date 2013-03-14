@@ -39,6 +39,6 @@
     "baseDir": "lib",
     "dependencies": {},
     "type": "directory",
-    "url": "https://raw.github.com/ExactTarget/fuelux-ckeditor/{version}/dist/fuelux.zip"
+    "url": "https://raw.github.com/ExactTarget/fuelux-ckeditor/{version}/dist/fuelux-ckeditor.zip"
   }
 }
