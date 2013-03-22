@@ -8,20 +8,20 @@
     "url": "https://github.com/ExactTarget/fuelux-cke/issues"
   },
   "description": "A wrapper around CKeditor providing a Fuel UX themed skin and compatability with AMD, Grunt, and Volo.",
-  "dependencies": {
-    "grunt-shell": "~0.2.1",
+  "dependencies": {},
+  "devDependencies": {
     "express": "~3.1.0",
     "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-compress": "~0.4.5",
+    "grunt-contrib-copy": "~0.4.0",
     "grunt-contrib-jshint": "~0.3.0",
     "grunt-contrib-qunit": "~0.1.1",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt-contrib-copy": "~0.4.0",
     "grunt-contrib-requirejs": "~0.4.0",
     "grunt-contrib-uglify": "~0.2.0",
-    "grunt-contrib-compress": "~0.4.5",
-    "grunt-contrib-watch": "~0.3.1"
+    "grunt-contrib-watch": "~0.3.1",
+    "grunt-shell": "~0.2.1"
   },
-  "devDependencies": {},
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -49,14 +49,7 @@
   "version": "0.0.4",
   "volo": {
     "baseDir": "lib",
-    "dependencies": {
-      "ckeditor-dev": "github:ckeditor/ckeditor-dev/4.1",
-      "less": "github:cloudhead/less.js/v1.3.3#dist/less-1.3.3.js",
-      "jquery": "github:jquery/jquery/1.9.1",
-      "qunit": "github:jquery/qunit/v1.11.0#qunit/",
-      "require": "github:jrburke/requirejs/2.1.5",
-      "aurl": "github:kevinparkerson/requirejs-aurl/1.0.0"
-    },
+    "dependencies": {},
     "type": "directory",
     "url": "https://raw.github.com/ExactTarget/fuelux-cke/{version}/dist/fuelux-cke.zip"
   }

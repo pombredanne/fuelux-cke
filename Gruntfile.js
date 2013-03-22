@@ -169,7 +169,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify', 'compress', 'clean:final']);
 
     grunt.registerTask('devserver', ['quicktest', 'watch']);
-    //grunt.registerTask('devsetup', ['shell:devsetup']);
+    grunt.registerTask('devsetup', ['shell:devsetup']);
 
     grunt.registerTask('fulltest', ['jshint', 'qunit:simple']);
     grunt.registerTask('quicktest', ['jshint', 'qunit:simple']);
