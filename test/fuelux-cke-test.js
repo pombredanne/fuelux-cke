@@ -3,7 +3,7 @@
   notDeepEqual:false, strictEqual:false, notStrictEqual:false, raises:false */
 
 require.config({
-    baseUrl: '../src',
+    baseUrl: '../',
     paths: {
         'jquery': '../lib/jquery'
     }
