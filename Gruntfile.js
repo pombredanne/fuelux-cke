@@ -23,20 +23,26 @@ module.exports = function(grunt) {
 //                }
 //            }
 //        },
-//        copy: {
-//            docs: {
-//                expand: true,
-//                cwd: 'docs/themes/',
-//                src: ['**'],
-//                dest: 'dist/docs/themes/'
-//            },
-//            images: {
-//                expand: true,
-//                cwd: 'src/img/',
-//                src: ['**'],
-//                dest: 'dist/img/'
-//            }
-//        },
+        copy: {
+            ckeditor: {
+                expand: true,
+                cwd: 'lib/ckeditor-dev/dev/builder/release/ckeditor/',
+                src: ['**'],
+                dest: 'dist/ckeditor'
+            },
+            plugins: {
+                expand: true,
+                cwd: 'src/plugins/',
+                src: ['**'],
+                dest: 'dist/plugins/'
+            },
+            skins: {
+                expand: true,
+                cwd: 'src/skins/',
+                src: ['**'],
+                dest: 'dist/skins'
+            }
+        },
         jshint: {
             options: {
                 boss: true,
@@ -159,7 +165,7 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     //grunt.loadNpmTasks('grunt-contrib-compress');
-    //grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
     //grunt.loadNpmTasks('grunt-contrib-requirejs');
@@ -172,7 +178,7 @@ module.exports = function(grunt) {
     //Tasks
 
     //grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify', 'compress', 'clean:final']);
-    grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist']);
+    grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins']);
 
     //grunt.registerTask('devserver', ['quicktest', 'quickcss', 'watch']);
     //grunt.registerTask('devsetup', ['shell:devsetup']);
