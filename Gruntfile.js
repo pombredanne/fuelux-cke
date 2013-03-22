@@ -145,11 +145,11 @@ module.exports = function(grunt) {
                     'dist/all.min.js': ['dist/all.js']
                 }
             }
+        },
+        watch: {
+            files: ['Gruntfile.js', 'lib/**', 'src/**', 'test/**'],
+            tasks: ['lint', 'qunit']
         }
-//        watch: {
-//            files: ['Gruntfile.js', 'lib/**', 'src/**', 'test/**'],
-//            tasks: ['lint', 'qunit', 'recess']
-//        }
     });
 
     //Plugins
@@ -161,14 +161,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    //grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-shell');
 
     //Tasks
 
     grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify', 'compress', 'clean:final']);
 
-    //grunt.registerTask('devserver', ['quicktest', 'quickcss', 'watch']);
+    grunt.registerTask('devserver', ['quicktest', 'watch']);
     //grunt.registerTask('devsetup', ['shell:devsetup']);
 
     grunt.registerTask('fulltest', ['jshint', 'qunit:simple']);
