@@ -38,64 +38,48 @@ module.exports = function(grunt) {
 //                dest: 'dist/img/'
 //            }
 //        },
-//        jshint: {
-//            options: {
-//                boss: true,
-//                browser: true,
-//                curly: false,
-//                eqeqeq: true,
-//                eqnull: true,
-//                globals: {
-//                    define: true,
-//                    jQuery: true,
-//                    require: true
-//                },
-//                immed: true,
-//                latedef: true,
-//                newcap: true,
-//                noarg: true,
-//                smarttabs: true,
-//                sub: true,
-//                undef: true
-//            },
-//            source: ['Gruntfile.js', 'src/**/*.js'],
-//            tests: {
-//                options: {
-//                    undef: false,
-//                    unused: false,
-//                    latedef: false
-//                },
-//                files: {
-//                    src: ['test/**/*.js']
-//                }
-//            }
-//        },
-//        pkg: grunt.file.readJSON('package.json'),
-//        qunit: {
-//            /*full: {
-//             options: {
-//             urls: '<%= testUrls %>'
-//             }
-//             },*/
-//            simple: ['test/**/*.html']
-//        },
-//        recess: {
-//            compile: {
-//                dest: 'dist/css/fuelux-editor.css',
-//                options: {
-//                    compile: true
-//                },
-//                src: ['src/less/fuelux-editor.less']
-//            },
-//            compress: {
-//                dest: 'dist/css/fuelux-editor.min.css',
-//                options: {
-//                    compile: true,
-//                    compress: true
-//                },
-//                src: ['src/less/fuelux-editor.less']
-//            }
-//        },
+        jshint: {
+            options: {
+                boss: true,
+                browser: true,
+                curly: false,
+                eqeqeq: true,
+                eqnull: true,
+                globals: {
+                    CKEDITOR: true,
+                    define: true,
+                    jQuery: true,
+                    require: true
+                },
+                immed: true,
+                latedef: true,
+                newcap: true,
+                noarg: true,
+                smarttabs: true,
+                sub: true,
+                undef: true
+            },
+            source: ['Gruntfile.js', 'src/**/*.js'],
+            tests: {
+                options: {
+                    undef: false,
+                    unused: false,
+                    latedef: false
+                },
+                files: {
+                    src: ['test/**/*.js']
+                }
+            }
+        },
+        pkg: grunt.file.readJSON('package.json'),
+        qunit: {
+            /*full: {
+             options: {
+             urls: '<%= testUrls %>'
+             }
+             },*/
+            simple: ['test/**/*.html']
+        },
 //        requirejs: {
 //            combine: {
 //                options: {
@@ -177,8 +161,8 @@ module.exports = function(grunt) {
     //grunt.loadNpmTasks('grunt-contrib-clean');
     //grunt.loadNpmTasks('grunt-contrib-compress');
     //grunt.loadNpmTasks('grunt-contrib-copy');
-    //grunt.loadNpmTasks('grunt-contrib-jshint');
-    //grunt.loadNpmTasks('grunt-contrib-qunit');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-qunit');
     //grunt.loadNpmTasks('grunt-contrib-requirejs');
     //grunt.loadNpmTasks('grunt-contrib-uglify');
     //grunt.loadNpmTasks('grunt-contrib-watch');
@@ -188,19 +172,16 @@ module.exports = function(grunt) {
 
     //Tasks
 
-    //grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'requirejs', 'uglify', 'fullcss', 'copy:images', 'docs', 'compress', 'clean:final']);
-    grunt.registerTask('default', ['updatelib']);
+    //grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify', 'compress', 'clean:final']);
+    grunt.registerTask('default', ['fulltest']);
 
     //grunt.registerTask('devserver', ['quicktest', 'quickcss', 'watch']);
     //grunt.registerTask('devsetup', ['shell:devsetup']);
 
     //grunt.registerTask('docs', ['clean:docs', 'yuidoc', 'copy:docs']);
 
-    //grunt.registerTask('fullcss', ['quickcss', 'recess:compress']);
-    //grunt.registerTask('quickcss', ['recess:compile']);
-
-    //grunt.registerTask('fulltest', ['jshint', 'qunit:simple']);
-    //grunt.registerTask('quicktest', ['jshint', 'qunit:simple']);
+    grunt.registerTask('fulltest', ['jshint', 'qunit:simple']);
+    grunt.registerTask('quicktest', ['jshint', 'qunit:simple']);
 
     grunt.registerTask('updatelib', ['shell:updatelib']);
 
