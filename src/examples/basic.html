@@ -11,20 +11,23 @@
         <link href="http://fuelux.exacttargetapps.com/fuelux-imh/2.1/css/fuelux.css" rel="stylesheet">
         <link href="http://fuelux.exacttargetapps.com/fuelux-imh/2.1/css/fuelux-responsive.css" rel="stylesheet">
 
-        <!--Index Stylesheet-->
-        <link href="index.css" rel="stylesheet" type="text/css" />
+        <!--Examples Stylesheet-->
+        <link href="examples.css" rel="stylesheet" type="text/css" />
 
     <!-- SCRIPTS -->
 
         <!--Require JS-->
-        <script src="../lib/require.js" type="text/javascript"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.4/require.min.js" type="text/javascript"></script>
 
-        <!--Require Runtime Paths-->
-        <script src="runtimePaths.js" type="text/javascript"></script>
-
-        <!--Index Script-->
-        <script>
-            require.config({ baseUrl: '../' });
+        <!--Basic Exmaple Script-->
+        <script type="text/javascript">
+            require.config({
+                baseUrl: './',
+                paths: {
+                    'fuelux-cke': '../',
+                    'jquery': 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min'
+                }
+            });
 
             require(['jquery', 'fuelux-cke/all'], function($){});
         </script>
