@@ -1,44 +1,48 @@
 {
-    "author": {
-        "email": "kparkerson@exacttarget.com",
-        "name": "ExactTarget",
-        "url": "http://code.exacttarget.com"
-    },
-    "bugs": {
-        "url": "https://github.com/ExactTarget/fuelux-cke/issues"
-    },
-    "description": "A wrapper around CKeditor providing a Fuel UX themed skin and compatability with AMD, Grunt, and Volo.",
+  "author": {
+    "email": "kparkerson@exacttarget.com",
+    "name": "ExactTarget",
+    "url": "http://code.exacttarget.com"
+  },
+  "bugs": {
+    "url": "https://github.com/ExactTarget/fuelux-cke/issues"
+  },
+  "description": "A wrapper around CKeditor providing a Fuel UX themed skin and compatability with AMD, Grunt, and Volo.",
+  "dependencies": {
+    "grunt-shell": "~0.2.1",
+    "express": "~3.1.0",
+    "grunt": "~0.4.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "homepage": "https://github.com/ExactTarget/fuelux-cke",
+  "keywords": [
+    "fuelux-cke",
+    "fuelux cke",
+    "fuel ux-cke",
+    "fuel ux cke",
+    "fuelux-ckeditor",
+    "fuelux ckeditor",
+    "fuel ux-ckeditor",
+    "fuel ux ckeditor",
+    "ckeditor"
+  ],
+  "licenses": [],
+  "name": "fuelux-cke",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ExactTarget/fuelux-cke.git"
+  },
+  "scripts": {},
+  "title": "Fuel UX CKE",
+  "version": "0.0.4",
+  "volo": {
+    "baseDir": "lib",
     "dependencies": {},
-    "devDependencies": {},
-    "engines": {
-        "node": ">= 0.8.0"
-    },
-    "homepage": "https://github.com/ExactTarget/fuelux-cke",
-    "keywords": [
-        "fuelux-cke",
-        "fuelux cke",
-        "fuel ux-cke",
-        "fuel ux cke",
-        "fuelux-ckeditor",
-        "fuelux ckeditor",
-        "fuel ux-ckeditor",
-        "fuel ux ckeditor",
-        "ckeditor"
-    ],
-    "licenses": [],
-    "name": "fuelux-cke",
-    "private": true,
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/ExactTarget/fuelux-cke.git"
-    },
-    "scripts": {},
-    "title": "Fuel UX CKE",
-    "version": "0.0.4",
-    "volo": {
-        "baseDir": "lib",
-        "dependencies": {},
-        "type": "directory",
-        "url": "https://raw.github.com/ExactTarget/fuelux-cke/{version}/dist/fuelux-cke.zip"
-    }
+    "type": "directory",
+    "url": "https://raw.github.com/ExactTarget/fuelux-cke/{version}/dist/fuelux-cke.zip"
+  }
 }
