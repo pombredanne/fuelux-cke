@@ -1,8 +1,8 @@
 require.config({
     paths: {
         'aurl': '../lib/aurl',
-        'fuelux-ckeditor': './',
-        'fuelux-ckeditor/ckeditor': '../dist/ckeditor/',
+        'fuelux-cke': './',
+        'fuelux-cke/ckeditor': '../dist/ckeditor/',
         'jquery': '../lib/jquery'
     }
 });

@@ -1,8 +1,8 @@
-define(['require','fuelux-ckeditor/ckeditor/ckeditor','aurl!fuelux-ckeditor/dir.gif'],function (require) {
-    require('fuelux-ckeditor/ckeditor/ckeditor');
+define(function (require) {
+    require('fuelux-cke/ckeditor/ckeditor');
 
     var config = CKEDITOR.config;
-    var directory = require('aurl!fuelux-ckeditor/dir.gif').split('dir.gif')[0];
+    var directory = require('aurl!fuelux-cke/dir.gif').split('dir.gif')[0];
 
     //PLUGINS
     CKEDITOR.plugins.addExternal('onchange', directory + 'plugins/onchange/', 'plugin.js');
@@ -11,7 +11,7 @@ define(['require','fuelux-ckeditor/ckeditor/ckeditor','aurl!fuelux-ckeditor/dir.
 
 
     //SKINS
-    config.skin = 'fuelux-editor,' + directory + 'skins/fuelux-ckeditor/';
+    config.skin = 'fuelux-cke,' + directory + 'skins/fuelux-cke/';
 
     return CKEDITOR;
 });

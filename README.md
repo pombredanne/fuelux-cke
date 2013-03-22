@@ -1,4 +1,4 @@
-# Fuel UX CKeditor
+# Fuel UX CKE
 
 A wrapper around CKeditor providing a Fuel UX themed skin and compatability with AMD, grunt, and volo.
 

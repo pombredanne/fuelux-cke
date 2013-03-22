@@ -1,6 +1,8 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+    //TODO: upgrade to Grunt 0.4
+
 	grunt.loadNpmTasks('grunt-contrib');
 
 	// Project configuration.
@@ -65,14 +67,14 @@ module.exports = function(grunt) {
 					optimizeCss: 'none',
 					paths: {
                         'aurl': '../lib/aurl',
-                        'fuelux-ckeditor': '../dist',
+                        'fuelux-cke': '../dist',
                         'jquery': '../lib/jquery'
 					},
 					modules: [
                         {
-                            exclude: ['jquery', 'fuelux-ckeditor/ckeditor/ckeditor'],
+                            exclude: ['jquery', 'fuelux-cke/ckeditor/ckeditor'],
                             include: ['aurl'],
-                            name: 'fuelux-ckeditor/all'
+                            name: 'fuelux-cke/all'
                         }
 					]
 				}
@@ -80,8 +82,8 @@ module.exports = function(grunt) {
 		},
 		clean: {
             all: ['dist/**'],
-			dist: ['dist/build.txt', 'dist/fuelux-ckeditor.zip'],
-			zipsrc: ['dist/fuelux-ckeditor']
+			dist: ['dist/build.txt', 'dist/fuelux-cke.zip'],
+			zipsrc: ['dist/fuelux-cke']
 		},
 		copy: {
             ckeditor: {
@@ -114,14 +116,14 @@ module.exports = function(grunt) {
 					basePath: 'dist'
 				},
 				files: {
-					'dist/fuelux-ckeditor': 'dist/**'
+					'dist/fuelux-cke': 'dist/**'
 				}
 			}
 		},
 		compress: {
 			zip: {
 				files: {
-					'dist/fuelux-ckeditor.zip': 'dist/fuelux-ckeditor/**'
+					'dist/fuelux-cke.zip': 'dist/fuelux-cke/**'
 				},
 				options: {
 					mode: 'zip',
