@@ -66,10 +66,14 @@ CKEDITOR.plugins.add('onchange', {
             });
 
             var undoCmd = editor.getCommand('undo');
-            undoCmd && undoCmd.on('afterUndo', somethingChanged);
+            if(undoCmd){
+                undoCmd.on('afterUndo', somethingChanged);
+            }
 
             var redoCmd = editor.getCommand('redo');
-            redoCmd && redoCmd.on('afterRedo', somethingChanged);
+            if(redoCmd){
+                redoCmd.on('afterRedo', somethingChanged);
+            }
 
             editor.on('afterCommandExec', function (event) {
                 if (event.data.name === 'source'){
