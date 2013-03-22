@@ -5,12 +5,12 @@
 require.config({
     baseUrl: '../',
     paths: {
-        'jquery': '../lib/jquery'
+        'jquery': 'lib/jquery'
     }
 });
 
 require(['jquery'], function($) {
-    module('Fuel UX CKeditor', {
+    module('Fuel UX CKE', {
         setup: function() {
             this.elems = $('#qunit-fixture').children();
         }
