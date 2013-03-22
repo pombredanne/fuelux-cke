@@ -85,28 +85,32 @@ module.exports = function(grunt) {
              },*/
             simple: ['test/**/*.html']
         },
-//        requirejs: {
-//            combine: {
-//                options: {
-//                    appDir: 'src',
-//                    baseUrl: '.',
-//                    dir: 'dist',
-//                    keepBuildDir: true,
-//                    modules: [
-//                        {
-//                            name: 'fuelux-editor/all'
-//                        }
-//                    ],
-//                    normalizeDirDefines: 'all',
-//                    optimize: 'none',
-//                    optimizeCss: 'none',
-//                    paths: {
-//                        'fuelux-editor': '../dist'
-//                    },
-//                    wrap: true
-//                }
-//            }
-//        },
+        requirejs: {
+            combine: {
+                options: {
+                    appDir: 'src',
+                    baseUrl: '.',
+                    dir: 'dist',
+                    keepBuildDir: true,
+                    modules: [
+                        {
+                            exclude: ['jquery', 'fuelux-cke/ckeditor/ckeditor'],
+                            include: ['aurl'],
+                            name: 'fuelux-cke/all'
+                        }
+                    ],
+                    normalizeDirDefines: 'all',
+                    optimize: 'none',
+                    optimizeCss: 'none',
+                    paths: {
+                        'aurl': '../lib/aurl',
+                        'fuelux-cke': '../dist',
+                        'jquery': '../lib/jquery'
+                    },
+                    wrap: true
+                }
+            }
+        },
         shell: {
             devsetup: {
                 command: grunt.file.read('util/devsetup.sh'),
@@ -127,37 +131,24 @@ module.exports = function(grunt) {
                     failOnError: true
                 }
             }
+        },
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
+                    '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+                    '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
+                    '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
+                    ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n'
+            },
+            all: {
+                files: {
+                    'dist/all.min.js': ['dist/all.js']
+                }
+            }
         }
-//        uglify: {
-//            options: {
-//                banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-//                    '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-//                    '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-//                    '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-//                    ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n'
-//            },
-//            all: {
-//                files: {
-//                    'dist/all.min.js': ['dist/all.js']
-//                }
-//            }
-//        },
 //        watch: {
 //            files: ['Gruntfile.js', 'lib/**', 'src/**', 'test/**'],
 //            tasks: ['lint', 'qunit', 'recess']
-//        },
-//        yuidoc: {
-//            compile: {
-//                name: '<%= pkg.title || pkg.name %>',
-//                description: '<%= pkg.description %>',
-//                options: {
-//                    linkNatives: true,
-//                    outdir: 'dist/docs',
-//                    paths: 'src'
-//                },
-//                url: '<%= pkg.homepage %>',
-//                version: '<%= pkg.version %>'
-//            }
 //        }
     });
 
@@ -168,17 +159,15 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
-    //grunt.loadNpmTasks('grunt-contrib-requirejs');
-    //grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     //grunt.loadNpmTasks('grunt-contrib-watch');
-    //grunt.loadNpmTasks('grunt-contrib-yuidoc');
-    //grunt.loadNpmTasks('grunt-recess');
     grunt.loadNpmTasks('grunt-shell');
 
     //Tasks
 
     //grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify', 'compress', 'clean:final']);
-    grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins']);
+    grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify']);
 
     //grunt.registerTask('devserver', ['quicktest', 'quickcss', 'watch']);
     //grunt.registerTask('devsetup', ['shell:devsetup']);
