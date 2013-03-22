@@ -8,21 +8,21 @@ module.exports = function(grunt) {
             dist: ['dist/'],
             final: ['dist/build.txt']
         },
-//        compress: {
-//            zip: {
-//                files: [
-//                    {
-//                        cwd: 'dist/',
-//                        expand: true,
-//                        src: ['**']
-//                    }
-//                ],
-//                options: {
-//                    archive: 'dist/fuelux-editor.zip',
-//                    mode: 'zip'
-//                }
-//            }
-//        },
+        compress: {
+            zip: {
+                files: [
+                    {
+                        cwd: 'dist/',
+                        expand: true,
+                        src: ['**']
+                    }
+                ],
+                options: {
+                    archive: 'dist/fuelux-cke.zip',
+                    mode: 'zip'
+                }
+            }
+        },
         copy: {
             ckeditor: {
                 expand: true,
@@ -155,7 +155,7 @@ module.exports = function(grunt) {
     //Plugins
 
     grunt.loadNpmTasks('grunt-contrib-clean');
-    //grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-qunit');
@@ -166,13 +166,10 @@ module.exports = function(grunt) {
 
     //Tasks
 
-    //grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify', 'compress', 'clean:final']);
-    grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify']);
+    grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify', 'compress', 'clean:final']);
 
     //grunt.registerTask('devserver', ['quicktest', 'quickcss', 'watch']);
     //grunt.registerTask('devsetup', ['shell:devsetup']);
-
-    //grunt.registerTask('docs', ['clean:docs', 'yuidoc', 'copy:docs']);
 
     grunt.registerTask('fulltest', ['jshint', 'qunit:simple']);
     grunt.registerTask('quicktest', ['jshint', 'qunit:simple']);
