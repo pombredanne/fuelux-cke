@@ -19,6 +19,7 @@
  * == END LICENSE ==
  *
  */
+
 // Keeps track of changes to the content and fires a "change" event
 CKEDITOR.plugins.add('onchange', {
     init: function (editor) {
@@ -28,14 +29,11 @@ CKEDITOR.plugins.add('onchange', {
         // Avoid firing the event too often
         var somethingChanged = function(){
             // don't fire events if the editor is readOnly as they are false detections
-            if (editor.readOnly){
+            if (editor.readOnly)
                 return;
-            }
 
-
-            if (timer){
+            if (timer)
                 return;
-            }
 
             timer = setTimeout(function () {
                 timer = 0;
@@ -49,9 +47,7 @@ CKEDITOR.plugins.add('onchange', {
 
         // Kill the timer on editor destroy
         editor.on('destroy', function () {
-            if (timer) {
-                clearTimeout(timer);
-            }
+            if (timer) clearTimeout(timer);
             timer = null;
         });
 
@@ -60,30 +56,24 @@ CKEDITOR.plugins.add('onchange', {
         {
             // Set several listeners to watch for changes to the content
             editor.on('saveSnapshot', function (evt) {
-                if (!evt.data || !evt.data.contentOnly){
+                if (!evt.data || !evt.data.contentOnly)
                     somethingChanged();
-                }
             });
 
             var undoCmd = editor.getCommand('undo');
-            if(undoCmd){
+            if(undoCmd)
                 undoCmd.on('afterUndo', somethingChanged);
-            }
 
             var redoCmd = editor.getCommand('redo');
-            if(redoCmd){
+            if(redoCmd)
                 redoCmd.on('afterRedo', somethingChanged);
-            }
 
             editor.on('afterCommandExec', function (event) {
-                if (event.data.name === 'source'){
+                if (event.data.name === 'source')
                     return;
-                }
 
-
-                if (event.data.command.canUndo !== false){
+                if (event.data.command.canUndo !== false)
                     somethingChanged();
-                }
             });
         }
 
@@ -93,8 +83,8 @@ CKEDITOR.plugins.add('onchange', {
             });
 
             // To check that we are using a cool browser.
-            //if (window.console && window.console.log)
-            //console.log("Detecting changes using MutationObservers");
+            if (window.console && window.console.log)
+                window.console.log("Detecting changes using MutationObservers");
         }
 
         // Changes in WYSIWYG mode
@@ -102,28 +92,23 @@ CKEDITOR.plugins.add('onchange', {
             if (observer) {
                 // A notification is fired right now, but we don't want it so soon
                 setTimeout(function () {
-                    if (editor && editor.document) {
-                        observer.observe(editor.document.getBody().$, {
-                            attributes: true,
-                            childList: true,
-                            characterData: true
-                        });
-                    }
+                    observer.observe(editor.document.getBody().$, {
+                        attributes: true,
+                        childList: true,
+                        characterData: true
+                    });
                 }, 100);
             }
 
             editor.document.on('keydown', function (event) {
                 // Do not capture CTRL hotkeys.
-                if (event.data.$.ctrlKey || event.data.$.metaKey){
+                if (event.data.$.ctrlKey || event.data.$.metaKey)
                     return;
-                }
-
 
                 var keyCode = event.data.$.keyCode;
                 // Filter movement keys and related
-                if (keyCode === 8 || keyCode === 13 || keyCode === 32 || (keyCode >= 46 && keyCode <= 90) || (keyCode >= 96 && keyCode <= 111) || (keyCode >= 186 && keyCode <= 222)){
+                if (keyCode === 8 || keyCode === 13 || keyCode === 32 || (keyCode >= 46 && keyCode <= 90) || (keyCode >= 96 && keyCode <= 111) || (keyCode >= 186 && keyCode <= 222) || keyCode === 229)
                     somethingChanged();
-                }
             });
 
             // Firefox OK
@@ -134,19 +119,23 @@ CKEDITOR.plugins.add('onchange', {
 
         // Detect changes in source mode
         editor.on('mode', function (e) {
-            if (editor.mode !== 'source'){
+            if (editor.mode !== 'source')
                 return;
-            }
 
-            editor.textarea.on('keydown', function (event) {
+            var textarea = (editor.textarea || editor._.editable);
+            textarea.on('keydown', function (event) {
                 // Do not capture CTRL hotkeys.
-                if (!event.data.$.ctrlKey && !event.data.$.metaKey){
+                if (!event.data.$.ctrlKey && !event.data.$.metaKey)
                     somethingChanged();
-                }
             });
 
-            editor.textarea.on('drop', somethingChanged);
-            editor.textarea.on('input', somethingChanged);
+            textarea.on('drop', somethingChanged);
+            textarea.on('input', somethingChanged);
+            if (CKEDITOR.env.ie) {
+                textarea.on('cut', somethingChanged);
+                textarea.on('paste', somethingChanged);
+            }
         });
+
     } //Init
 });
