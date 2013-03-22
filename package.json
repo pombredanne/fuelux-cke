@@ -41,7 +41,14 @@
   "version": "0.0.4",
   "volo": {
     "baseDir": "lib",
-    "dependencies": {},
+    "dependencies": {
+      "ckeditor-dev": "github:ckeditor/ckeditor-dev/4.1",
+      "less": "github:cloudhead/less.js/v1.3.3#dist/less-1.3.3.js",
+      "jquery": "github:jquery/jquery/1.9.1",
+      "qunit": "github:jquery/qunit/v1.11.0#qunit/",
+      "require": "github:jrburke/requirejs/2.1.5",
+      "aurl": "github:kevinparkerson/requirejs-aurl/1.0.0"
+    },
     "type": "directory",
     "url": "https://raw.github.com/ExactTarget/fuelux-cke/{version}/dist/fuelux-cke.zip"
   }
