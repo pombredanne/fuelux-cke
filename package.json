@@ -30,7 +30,7 @@
     "private": true,
     "repository": {
         "type": "git",
-        "url": "git://github.com/ExactTarget/fuelux-editor.git"
+        "url": "git://github.com/ExactTarget/fuelux-cke.git"
     },
     "scripts": {},
     "title": "Fuel UX CKE",
