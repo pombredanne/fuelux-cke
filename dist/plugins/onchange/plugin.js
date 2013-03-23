@@ -81,10 +81,6 @@ CKEDITOR.plugins.add('onchange', {
             observer = new TheMutationObserver(function (mutations) {
                 somethingChanged();
             });
-
-            // To check that we are using a cool browser.
-            if (window.console && window.console.log)
-                window.console.log("Detecting changes using MutationObservers");
         }
 
         // Changes in WYSIWYG mode
