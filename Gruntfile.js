@@ -5,8 +5,9 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         clean: {
+            build: ['dist/build.txt'],
             dist: ['dist/'],
-            final: ['dist/build.txt', 'dist/fuelux-cke']
+            zipsrc: ['dist/fuelux-cke']
         },
         compress: {
             zip: {
@@ -172,7 +173,7 @@ module.exports = function(grunt) {
 
     //Tasks
 
-    grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify', 'copy:zipsrc', 'compress', 'clean:final']);
+    grunt.registerTask('default', ['fulltest', 'clean:dist', 'shell:mkdist', 'copy:ckeditor', 'copy:plugins', 'copy:skins', 'requirejs', 'uglify', 'clean:build', 'copy:zipsrc', 'compress', 'clean:zipsrc']);
 
     grunt.registerTask('devserver', ['quicktest', 'watch']);
     grunt.registerTask('devsetup', ['shell:devsetup']);
