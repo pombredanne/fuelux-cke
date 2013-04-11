@@ -102,7 +102,6 @@ module.exports = function(grunt) {
                     modules: [
                         {
                             exclude: ['jquery', 'fuelux-cke/ckeditor/ckeditor'],
-                            include: ['aurl'],
                             name: 'fuelux-cke/all'
                         }
                     ],
@@ -110,7 +109,6 @@ module.exports = function(grunt) {
                     optimize: 'none',
                     optimizeCss: 'none',
                     paths: {
-                        'aurl': '../lib/aurl',
                         'fuelux-cke': '../dist',
                         'jquery': '../lib/jquery'
                     },

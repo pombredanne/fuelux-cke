@@ -1,32 +1,18 @@
 (function () {
-/**
- * RequireJS aurl plugin 1.0.0 Copyright (c) 2013 Kevin Parkerson
- * Available via the MIT or new BSD license.
- * see: https://github.com/kevinparkerson/requirejs-aurl for details
- */
-
-define('aurl',{
-    load: function(name, req, load, config){
-        var img, path;
-        if(config.isBuild){
-            load();
-        }else{
-            path = req.toUrl(name);
-            img = document.createElement('img');
-            img.src = path;
-            path = img.src;
-            img.src = null;
-            img = null;
-            load(path);
-        }
-    }
+define('fuelux-cke/dir',['module'], function (module) {
+    var path = module.uri;
+    var img = document.createElement('img');
+    img.src = path;
+    path = img.src;
+    img.src = null;
+    img = null;
+    return path;
 });
-
-define('fuelux-cke/config',['require','fuelux-cke/ckeditor/ckeditor','aurl!fuelux-cke/dir.gif'],function (require) {
+define('fuelux-cke/config',['require','fuelux-cke/ckeditor/ckeditor','fuelux-cke/dir'],function (require) {
     require('fuelux-cke/ckeditor/ckeditor');
 
     var config = CKEDITOR.config;
-    var directory = require('aurl!fuelux-cke/dir.gif').split('dir.gif')[0];
+    var directory = require('fuelux-cke/dir').split('dir.js')[0];
 
     //PLUGINS
     CKEDITOR.plugins.addExternal('onchange', directory + 'plugins/onchange/', 'plugin.js');
