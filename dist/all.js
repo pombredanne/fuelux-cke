@@ -7,23 +7,39 @@ define('fuelux-cke/dir',['module'], function (module) {
     img = null;
     return path;
 });
+/*global define, CKEDITOR */
 define('fuelux-cke/config',['require','fuelux-cke/ckeditor/ckeditor','fuelux-cke/dir'],function (require) {
-    require('fuelux-cke/ckeditor/ckeditor');
+	require('fuelux-cke/ckeditor/ckeditor');
 
-    var config = CKEDITOR.config;
-    var directory = require('fuelux-cke/dir').split('dir.gif')[0];
+	var config = CKEDITOR.config;
+	var directory = require('fuelux-cke/dir').split('dir.gif')[0];
 
-    //PLUGINS
-    CKEDITOR.plugins.addExternal('onchange', directory + 'plugins/onchange/', 'plugin.js');
+	//PLUGINS
+	var allPlugins = [
+		'onchange',
+		'scayt'
+	];
 
-    config.extraPlugins = 'onchange';
+	var i;
+	var len = allPlugins.length;
+	var current;
 
-    //SKINS
-    config.skin = 'fuelux-cke,' + directory + 'skins/fuelux-cke/';
+	for (i = 0; i < len; i++) {
+		current = allPlugins[i];
+		CKEDITOR.plugins.addExternal(
+			current,
+			directory + 'plugins/' + current + '/',
+			'plugin.js'
+		);
+	}
 
-    return CKEDITOR;
+	config.extraPlugins = allPlugins.join(',');
+
+	//SKINS
+	config.skin = 'fuelux-cke,' + directory + 'skins/fuelux-cke/';
+
+	return CKEDITOR;
 });
-
 
 /*
  * Fuel UX CKE - All
