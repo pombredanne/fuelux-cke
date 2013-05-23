@@ -63,6 +63,7 @@ module.exports = function(grunt) {
                     jQuery: true,
                     require: true
                 },
+                ignores: ['src/plugins/**/*.js', 'src/skins/**/*.js'],
                 immed: true,
                 latedef: true,
                 newcap: true,
