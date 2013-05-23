@@ -48,9 +48,7 @@
   "version": "0.1.2",
   "volo": {
     "baseDir": "lib",
-    "dependencies": {
-      "ckeditor-dev": "github:ckeditor/ckeditor-dev/4.1.1"
-    },
+    "dependencies": {},
     "type": "directory",
     "url": "https://raw.github.com/ExactTarget/fuelux-cke/{version}/dist/fuelux-cke.zip"
   }

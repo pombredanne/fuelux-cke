@@ -35,11 +35,15 @@ define('fuelux-cke/config',['require','fuelux-cke/ckeditor/ckeditor','fuelux-cke
 
 	config.extraPlugins = allPlugins.join(',');
 
+
 	//SKINS
 	config.skin = 'fuelux-cke,' + directory + 'skins/fuelux-cke/';
 
+
+    //DEFAULT SETTINGS
+
 	config.scayt_srcUrl = 'https://app.s1.exct.net/spellcheck/lf/scayt/scayt.js';
-//	config.scayt_customerid = '1:TP9O44-I3npX3-BzRrT3-phukM-Z3MLc2-C54oN1-4dqFI2-csepO1-SJ2yh1-eGvAg4';
+    //config.scayt_customerid = '1:TP9O44-I3npX3-BzRrT3-phukM-Z3MLc2-C54oN1-4dqFI2-csepO1-SJ2yh1-eGvAg4';
 	config.scayt_autoStartup = true;
 	config.scayt_maxSuggestions = 4;
 	config.scayt_sLang ="en_US";
