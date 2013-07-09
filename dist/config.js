@@ -1,6 +1,6 @@
 /*global define, CKEDITOR */
-define(['require','fuelux-cke/ckeditor/ckeditor','fuelux-cke/dir'],function (require) {
-	require('fuelux-cke/ckeditor/ckeditor');
+define(['require','fuelux-cke/../lib/ckeditor-dev/ckeditor','fuelux-cke/dir'],function (require) {
+	require('fuelux-cke/../lib/ckeditor-dev/ckeditor');
 
 	var config = CKEDITOR.config;
 	var directory = require('fuelux-cke/dir').split('dir.gif')[0];
@@ -30,11 +30,8 @@ define(['require','fuelux-cke/ckeditor/ckeditor','fuelux-cke/dir'],function (req
 	//SKINS
 	config.skin = 'fuelux-cke,' + directory + 'skins/fuelux-cke/';
 
-
-    //DEFAULT SETTINGS
-
-	config.scayt_srcUrl = 'https://app.s1.exct.net/spellcheck/lf/scayt/scayt.js';
-    //config.scayt_customerid = '1:TP9O44-I3npX3-BzRrT3-phukM-Z3MLc2-C54oN1-4dqFI2-csepO1-SJ2yh1-eGvAg4';
+	//DEFAULT SETTINGS
+	config.scayt_srcUrl = 'http://qanv1spell01.qa.local/spellcheck/lf/scayt/scayt.js';
 	config.scayt_autoStartup = true;
 	config.scayt_maxSuggestions = 4;
 	config.scayt_sLang ="en_US";
