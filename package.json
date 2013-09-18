@@ -45,7 +45,7 @@
   },
   "scripts": {},
   "title": "Fuel UX CKE",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "volo": {
     "baseDir": "lib",
     "dependencies": {},
