@@ -7,21 +7,15 @@ define(function (require) {
 
 	//PLUGINS
 	var allPlugins = [
-		'onchange',
-		'scayt'
+		'onchange'
 	];
 
-	var i;
 	var len = allPlugins.length;
-	var current;
+	var current, i;
 
 	for (i = 0; i < len; i++) {
 		current = allPlugins[i];
-		CKEDITOR.plugins.addExternal(
-			current,
-			directory + 'plugins/' + current + '/',
-			'plugin.js'
-		);
+		CKEDITOR.plugins.addExternal(current, directory + 'plugins/' + current + '/', 'plugin.js');
 	}
 
 	config.extraPlugins = allPlugins.join(',');
@@ -29,18 +23,6 @@ define(function (require) {
 
 	//SKINS
 	config.skin = 'fuelux-cke,' + directory + 'skins/fuelux-cke/';
-
-
-    //DEFAULT SETTINGS
-	// config.scayt_srcUrl = 'http://qanv1spell01.qa.local/spellcheck/lf/scayt/scayt.js';
-	config.scayt_srcUrl = 'https://app.s1.exct.net/spellcheck/lf/scayt/scayt.js';
-	config.scayt_autoStartup = true;
-	config.scayt_maxSuggestions = 4;
-	config.scayt_sLang ="en_US";
-	config.scayt_moreSuggestions = 'on';
-	config.scayt_contextCommands = 'add|ignoreall';
-	config.scayt_uiTabs = '1,0,1';
-	config.scayt_contextMenuItemsOrder ='moresuggest|control|suggest';
 
 	return CKEDITOR;
 });
